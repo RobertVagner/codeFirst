@@ -1,0 +1,110 @@
+﻿@model IEnumerable<CodeFirst.Models.Convidado>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Lista de Convidados</h1>
+
+<p>
+    <a asp-action="Create">Adicionar Convidado</a>
+</p>
+<h2>Todos os Convidados</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.convidadoID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comparecimento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.convidadoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.CheckBoxFor(modelItem => item.comparecimento)
+            </td>
+            <td>
+                    @Html.ActionLink("Editar", "Edit", new { id=item.convidadoID }) |
+                    @Html.ActionLink("Mais Detalhes", "Details", new { id=item.convidadoID }) |
+                    @Html.ActionLink("Apagar", "Delete", new { id=item.convidadoID })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<h2>Convidado confirmados</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.convidadoID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comparecimento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        if(item.comparecimento == true)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.convidadoID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                <td>
+                    @Html.CheckBoxFor(modelItem => item.comparecimento)
+                </td>
+            </tr>
+        }
+        
+}
+    </tbody>
+</table>

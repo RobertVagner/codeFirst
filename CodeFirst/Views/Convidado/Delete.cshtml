@@ -1,0 +1,51 @@
+﻿@model CodeFirst.Models.Convidado
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Apagar</h1>
+
+<h3>Tem certeza que deseja excluir esse convidado?</h3>
+<div>
+    <h4>Convidado</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.convidadoID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.convidadoID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EMail)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EMail)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.comparecimento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.CheckBoxFor(model => model.comparecimento)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Apagar" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar para a lista</a>
+    </form>
+</div>
